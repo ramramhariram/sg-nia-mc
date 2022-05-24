@@ -10,8 +10,8 @@ terraform {
 resource "aws_security_group_rule" "group" {
 	for_each          = var.services
   type              = "ingress"
-  from_port         = 6379
-  to_port           = 6379
+  from_port         = 80
+  to_port           = 80
   protocol          = "tcp"
   cidr_blocks       = ["${each.value.node_address}/32"]
   description       = "security group rule added by CTS"
